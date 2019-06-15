@@ -1,0 +1,45 @@
+<p-toast></p-toast>
+
+<div class="container">
+
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>Novo Usuário</h1>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Nome</label>
+        <input pInputText type="text" name="nome" [(ngModel)]="usuario.nome" #nome="ngModel" required minlength="3">
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe um nome</div>
+        <div *ngIf="nome.hasError('minlength')">O nome deve ter no mínimo 3 caractares</div>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Idade</label>
+        <input pInputText type="text" name="idade" [(ngModel)]="usuario.idade" #nome="ngModel" required minlength="1">
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe uma idade</div>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Sexo</label>
+        <input pInputText type="text" name="area" [(ngModel)]="usuario.sexo" #nome="ngModel" required minlength="3">
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe um sexo</div>
+        <div *ngIf="nome.hasError('minlength')">O sexo deve ter no mínimo 3 caractares</div>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Tipo</label>
+        <input pInputText type="text" name="tipo" [(ngModel)]="usuario.tipo" #nome="ngModel" required minlength="1">
+        <label>Escreva '1' para Professor ou '2' para Aluno</label>
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe um Tipo</div>
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar" [disabled]="f.invalid" class=" boxButton"></button>
+      </div>
+    </div>
+  </form>
+</div>

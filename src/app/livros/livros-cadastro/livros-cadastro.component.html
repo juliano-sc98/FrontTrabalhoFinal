@@ -1,0 +1,45 @@
+<p-toast></p-toast>
+
+<div class="container">
+
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>Novo Livro</h1>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Nome</label>
+        <input pInputText type="text" name="titulo" [(ngModel)]="livro.titulo" #nome="ngModel" required minlength="3">
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe um titulo</div>
+        <div *ngIf="nome.hasError('minlength')">O titulo deve ter no mínimo 3 caractares</div>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Área de Conhecimento</label>
+        <input pInputText type="text" name="area" [(ngModel)]="livro.areaConhecimento" #nome="ngModel" required minlength="3">
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe uma área</div>
+        <div *ngIf="nome.hasError('minlength')">A área deve ter no mínimo 3 caractares</div>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Exemplares</label>
+        <input pInputText type="text" name="exemplares" [(ngModel)]="livro.exemplares" #nome="ngModel" required minlength="1">
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe uma quantidade de exemplares</div>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Localização</label>
+        <input pInputText type="text" name="localizacao" [(ngModel)]="livro.localizacao" #nome="ngModel" required minlength="3">
+        <div *ngIf="nome.hasError('required') && nome.touched">Informe uma Localização</div>
+        <div *ngIf="nome.hasError('minlength')">A localização deve ter no mínimo 3 caractares</div>
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar" [disabled]="f.invalid" class=" boxButton"></button>
+      </div>
+    </div>
+  </form>
+</div>
