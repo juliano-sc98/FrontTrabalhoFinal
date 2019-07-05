@@ -1,3 +1,42 @@
-<p>
-  emprestimos-pesquisa works!
-</p>
+<p-toast position="top-left"></p-toast>
+<p-confirmDialog header = "Confirmação" icon="pi pi-question-circle"
+acceptLabel = "Sim" rejectLabel = "Não"></p-confirmDialog>
+<div class = "container">
+
+  <div class = "ui-g">
+    <div class = "ui-g-12">
+      <h1> Empréstimos </h1>
+    </div>
+  </div>
+
+  <div class = "ui-g">
+    <div class = "ui-g-12">
+      <p-table [value] = "emprestimos" [responsive] = "true" [paginator]="true" [rows]="3">
+        <ng-template pTemplate = "header">
+          <tr> <!--linha-->
+            <th class = "col-id-header">Id</th> <!--header-->
+            <th>Instante</th>
+            <th>Devolução</th>
+            <th>Usuario</th>
+            <th>Livro</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate = "body" let-emprestimo>
+            <tr>
+              <td class = "col-id">{{emprestimo.id}}</td>
+              <td class = "col-id">{{emprestimo.instante}}</td>
+              <td class = "col-id">{{emprestimo.devolucao}}</td>
+              <td class = "col-id">{{emprestimo.usuario.nome}}</td>
+              <td class = "col-id">{{emprestimo.itens}}</td>
+            </tr>
+          </ng-template>
+      </p-table>
+    </div>
+
+    <div class = "ui-g-12">
+      <a pButton label = "Novo Empréstimo" routerLink = "/emprestimos/novo"></a>
+    </div>
+
+  </div>
+</div>

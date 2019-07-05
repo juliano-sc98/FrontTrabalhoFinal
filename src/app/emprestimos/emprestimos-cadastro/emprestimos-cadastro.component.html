@@ -1,3 +1,42 @@
-<p>
-  emprestimos-cadastro works!
-</p>
+<p-toast></p-toast>
+
+<div class="container">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+    <div class="ui-g">
+
+      <div class="ui-g-12">
+        <h1>Novo Empréstimo</h1>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Usuarios</label>
+        <p-dropdown [options]="usuarios" [(ngModel)]="emprestimo.usuario.id" name="usuario" [filter]="true" placeholder="Selecione um Usuario">
+        </p-dropdown>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Livro 1</label>
+        <p-dropdown [options]="livros" [(ngModel)]="emprestimo.livro1.id" name="livro" [filter]="true" placeholder="Selecione um Livro">
+        </p-dropdown>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Livro 2</label>
+        <p-dropdown [options]="livros" [(ngModel)]="emprestimo.livro2.id" name="livro" [filter]="true" placeholder="Selecione um Livro">
+        </p-dropdown>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <label>Livro 3</label>
+        <p-dropdown [options]="livros" [(ngModel)]="emprestimo.livro3.id" name="livro" [filter]="true" placeholder="Selecione um Livro">
+        </p-dropdown>
+      </div>
+
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar" [disabled]="f.invalid" class=" boxButton"></button>
+        <button pButton type="button" label="Empréstimos" class="ui-button-info" class=" boxButton" routerLink="/emprestimos"></button>
+      </div>
+
+    </div>
+  </form>
+</div>

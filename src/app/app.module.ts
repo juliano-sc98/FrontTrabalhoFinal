@@ -1,3 +1,6 @@
+import { EmprestimosCadastroComponent } from './emprestimos/emprestimos-cadastro/emprestimos-cadastro.component';
+import { EmprestimosModule } from './emprestimos/emprestimos.module';
+import { EmprestimosPesquisaComponent } from './emprestimos/emprestimos-pesquisa/emprestimos-pesquisa.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { UsuariosCadastroComponent } from './usuarios/usuarios-cadastro/usuarios-cadastro.component';
 import { LivrosCadastroComponent } from './livros/livros-cadastro/livros-cadastro.component';
@@ -15,9 +18,12 @@ import { AppComponent } from './app.component';
 import { LivrosModule } from './livros/livros.module';
 
 const rotas: Routes = [
-  {path: '', redirectTo:'livros', pathMatch:'full'},
+  {path: '', redirectTo:'emprestimos', pathMatch:'full'},
   {path: 'livros', component: LivrosCadastroComponent},
-  {path: 'usuarios', component: UsuariosCadastroComponent}
+  {path: 'usuarios', component: UsuariosCadastroComponent},
+  {path: 'emprestimos', component: EmprestimosPesquisaComponent},
+  {path: 'emprestimos/novo', component: EmprestimosCadastroComponent},
+  {path: 'emprestimos/:id', component: EmprestimosCadastroComponent},
 ];
 
 @NgModule({
@@ -33,6 +39,7 @@ const rotas: Routes = [
     ButtonModule,
     LivrosModule,
     UsuariosModule,
+    EmprestimosModule,
     RouterModule.forRoot(rotas)
   ],
   providers: [

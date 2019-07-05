@@ -1,3 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
+import { MessageService, ConfirmationService } from 'primeng/api';
+import { EmprestimosService } from './../emprestimos.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmprestimosPesquisaComponent implements OnInit {
 
-  constructor() { }
+  emprestimos = [];
+  livros = [];
+
+  constructor(
+    private service: EmprestimosService,
+    private msgService: MessageService,
+    private conf: ConfirmationService
+  ) { }
 
   ngOnInit() {
+    this.pesquisar();
+    this.pesquisarLivros();
+  }
+
+  pesquisar() {
+    this.service.pesquisar()
+    .then((dados) => {this.emprestimos = dados;});
+  }
+
+  pesquisarLivros() {
+    this.service.listarLivros().then((dados) => {
+      this.livros = dados.map(e => ({label: e.titulo, value: e.id}));
+    });
   }
 
 }

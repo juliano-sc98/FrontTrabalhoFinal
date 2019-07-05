@@ -10,6 +10,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
 import { EmprestimosService } from './emprestimos.service';
 
 
@@ -17,6 +18,7 @@ import { EmprestimosService } from './emprestimos.service';
   declarations: [EmprestimosPesquisaComponent, EmprestimosCadastroComponent],
   imports: [
     CommonModule,
+    DropdownModule,
     InputTextModule,
     ButtonModule,
     TableModule,
